@@ -1,0 +1,89 @@
+body{
+background-color: white;
+background-image:url(../landscape.png);
+background-repeat: no-repeat;
+background-size: cover;
+
+max-width: 5rem;
+max-height: 5em;
+}
+
+h1{
+    height: 2em;
+    width: 2em;
+    position: sticky;
+    top:0;
+    margin-left: 35px;
+    padding-left:500px;
+    letter-spacing: 2px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 100px;
+    text-shadow: 10px -5px 2px goldenrod;
+  
+}
+h1:hover {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.5s;
+  
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+.topnav
+{
+        color:green;
+        height: 100%; /* 100% Full-height */
+        width: 0; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        left:0;
+        background-color: rgba(0, 0, 0, .7); /* Black*/
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 60px; /* Place content 60px from the top */
+        transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+      
+}
+.topnav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .topnav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color:green;
+    display: block;
+    transition: 0.3s;
+    margin-top: 20px;
+  }
+  
+.topnav a:hover {
+    color: #f1f1f1;
+  }
+  
+button
+
+    {
+        margin: 0px 0px 0px 450px;
+        width: 200px;
+
+      }
+
+

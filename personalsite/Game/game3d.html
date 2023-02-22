@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <title>MDN Games: Babylon.js demo</title>
+    <style>
+      html,
+      body,
+      canvas {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="../Game/babylon.js"></script>
+    <canvas id="render-canvas"></canvas>
+    <script>
+
+     
+      const canvas = document.getElementById("render-canvas");
+      /* all our JavaScript code goes here */
+     
+      //CREATES SCENE
+      const engine = new BABYLON.Engine(canvas);
+      const scene = new BABYLON.Scene(engine);
+      scene.clearColor = new BABYLON.Color3(0.8,0.8,0.8);
+      //CREATES BOX
+      const box = BABYLON.Mesh.CreateBox("box", 35, scene);
+      
+      //manipulate box
+      box.rotation.x = 0;
+      box.rotation.y = .9;
+      box.rotation.z =.3;
+      box.position.x = -44;
+      box.position.y = -15;
+      
+      //adding more texture
+      const boxMaterial = new BABYLON.StandardMaterial("material", scene);
+      boxMaterial.emissiveColor = new BABYLON.Color3(.1, .5 , .3);
+      box.material = boxMaterial;
+
+      // creating floor
+      
+      // making a torus/donut lookin thing
+
+      const torus = BABYLON.Mesh.CreateTorus("torus", 2, .5, 15, scene);
+      torus.position.x=-5;
+      torus.rotation.x=1.5;
+      const torusMaterial = new BABYLON.StandardMaterial("material",scene);
+      torusMaterial.emissiveColor = new BABYLON.Color3(.4,.4,.4);
+      torus.material = torusMaterial;
+
+      //Cylinder
+        const cylinder = BABYLON.Mesh.CreateCylinder("cylinder", 2, 2, 2, 12, 1, scene);
+        cylinder.position.x = 5;
+        cylinder.rotation.x = -0.2;
+        const cylinderMaterial = new BABYLON.StandardMaterial("material", scene);
+        cylinderMaterial.emissiveColor = new BABYLON.Color3(1, 0.58, 0);
+        cylinder.material = cylinderMaterial;
+    
+
+      //add camera
+      const camera = new BABYLON.FreeCamera(
+            "camera",
+            new BABYLON.Vector3(0, 0, -100),
+            scene
+);
+    //add ligts
+const light = new BABYLON.PointLight(
+  "light",
+  new BABYLON.Vector3(0,0,-22,
+  scene));
+let t = 0;
+function renderLoop(){
+    scene.render();
+    t-=.01;
+   
+    cylinder.rotation.x =t*2;
+    torus.scaling.z = Math.abs(Math.sin(t*2)) + 0.5;
+    cylinder.position.y = Math.sin(t*3);
+}
+    engine.runRenderLoop(renderLoop);
+
+    </script>
+  </body>
+</html>
