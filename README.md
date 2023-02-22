@@ -1,2 +1,0 @@
-# crespoma.github.io
-pages
