@@ -1,15 +1,13 @@
-<h1>Employee Details</h1>
-<form>
-  First Name: <input type="text" ng-model="firstname"> <br><br>
-  Last Name: <input type = "text" ng-model="lastname"><br><br>
-  Phone Number: <input type = "tel" ng-model="telephone"><br><br>
-  Email: <input type="email" ng-model="email">
-  <br>
-  <button>Send</button>
-</form>
-<h1>Or upload a file!</h1>
-<form>
-  file: <input type="file" ng-model = "file">
-</form>
+<app-menu-bar></app-menu-bar>
+<app-employee-form></app-employee-form>
 
 
+  <div class="container-fluid">
+    
+    <router-outlet>
+      
+    </router-outlet>
+      
+  </div>
+  
+  

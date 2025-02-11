@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+            <h1 class="text-center">Employee Form</h1>
+            <br>
+            <div class = "col-2"></div>
+            <div class = "col-8">
+            <form #EmployeeForm="ngForm" (ngSubmit)="onSubmit(EmployeeForm)">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" ngModel placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" ngModel placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label for="Telephone">Telephone</label>
+                    <input type="tel" class="form-control" id="Telephone" name="Telephone" ngModel placeholder="000-000-000">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" ngModel placeholder="noemail@gmail.com">
+                </div>
+                <button type="submit" class="btn btn-success" [disabled]="EmployeeForm.form.invalid">
+                    Add New Employee
+                </button>
+            </form>
+            
+        </div>
+    <div class = "container-2">
+        <h1>File Submitter</h1>
+        <button type = "submit" class = "btn btn-success" (click)="fileSubmitter = !fileSubmitter">{{ fileSubmitter ? ' hide file submitter ' : 'show file submitter ' }}</button>
+        <div *ngIf ="fileSubmitter">
+            <h3>upload a file</h3>
+            <form> 
+                <div class = "form-group">
+                    <label for = "fileInput">choose file</label>
+                    <input type = "file" class = "form-control-file" id = "fileInput" (change)="onFileSelected($event)">
+                    <button type="button" class="btn btn-success mt-2" [disabled]="!selectedFile">
+                        Upload
+                    </button>
+                </div>
+            </form>
+        <p *ngIf="selectedFile" class="mt-2"><strong>Selected File:</strong> {{ selectedFile.name }}</p>
+
+        </div>
+    </div>
+       
+    </div>
+
+    <!-- Display Submitted Data for testing-->
+    <div *ngIf="submittedData" class="mt-4 p-3 bg-light border">
+        <h3>Submitted Data:</h3>
+        <p><strong>First Name:</strong> {{ submittedData.firstName }}</p>
+        <p><strong>Last Name:</strong> {{ submittedData.lastName }}</p>
+        <p><strong>Telephone:</strong> {{ submittedData.Telephone }}</p>
+        <p><strong>Email:</strong> {{ submittedData.Email }}</p>
+    </div>
+</div>
